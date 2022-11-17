@@ -112,19 +112,20 @@ elements.forEach(element => {
     observer.observe(element)
 })
 
+var i = 0
+const observer_singleServiceBox = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+    
+        if (entry.intersectionRatio > 0) {
+            entry.target.querySelector ('.single_service').style.animation = `single_service 1.5s ease-in-out forwards ${i++*0.5}s`
+        } 
+    }) 
+}, {
+    threshold: 0
+})
 
-// const observer1 = new IntersectionObserver((entries, observer) => {
-//     entries.forEach(entry => {
-//         if (entry.intersectionRatio > 0) {
-//             entry.target.classList.add('show_heading')
-//         } 
-//     })
-// }, {
-//     threshold: 0.25
-// })
+const singleSServiceBox = document.querySelectorAll('.single_service_box')
 
-// const elements1 = document.querySelectorAll('.header_title')
-
-// elements1.forEach(element => {
-//     observer1.observe(element)
-// })
+singleSServiceBox.forEach(element => {
+    observer_singleServiceBox.observe(element)
+})
