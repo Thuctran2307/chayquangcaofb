@@ -583,7 +583,7 @@ p {
   .navbar-nav .nav-item a {
     font-size: 20px;
     font-weight: 600;
-    color: #fff;
+    color: #f9f9f9;
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
     -ms-transition: all 0.3s ease-out 0s;
@@ -745,7 +745,7 @@ p {
   padding-top: 70px; }
 
 .header_social {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50px;
   -webkit-transform: translateY(-50%);
@@ -793,14 +793,36 @@ p {
     content: '';
     width: 1000%;
     height: 100%;
-    background-color: #00A78E;
+    /* background-color: #00A78E; */
     -webkit-transform: skewX(20deg);
     -moz-transform: skewX(20deg);
     -ms-transform: skewX(20deg);
     -o-transform: skewX(20deg);
     transform: skewX(20deg);
     top: 0;
-    left: 0; }
+    left: 80%; 
+    opacity: 0;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite, header_hero_shape 1s ease-in-out forwards 2s;
+  }
+    @keyframes header_hero_shape {
+      to {
+        left: 0;
+        opacity: 1;
+      }
+    }
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
 
 .header_hero_content .header_sub_title {
   opacity: 0;
@@ -997,6 +1019,7 @@ img[alt="hero"] {
   background-color: #F9F9F9; }
 
 .single_service {
+  opacity: 0;
   padding: 30px;
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(196, 196, 196, 0.3);
@@ -1007,7 +1030,16 @@ img[alt="hero"] {
   -ms-transition: all 0.3s ease-out 0s;
   -o-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
-  background-color: #fff; }
+  background-color: #fff; 
+  transform: translateY(50%);
+}
+@keyframes single_service {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
   @media only screen and (min-width: 576px) and (max-width: 767px) {
     .single_service {
       padding: 20px; } }
