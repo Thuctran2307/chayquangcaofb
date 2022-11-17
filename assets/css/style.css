@@ -581,7 +581,7 @@ p {
     .navbar-nav .nav-item {
       margin: 0; } }
   .navbar-nav .nav-item a {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 600;
     color: #fff;
     -webkit-transition: all 0.3s ease-out 0s;
@@ -803,6 +803,8 @@ p {
     left: 0; }
 
 .header_hero_content .header_sub_title {
+  opacity: 0;
+  animation: show_heading 1s ease-in-out 1s forwards;
   font-size: 30px;
   font-weight: 600;
   color: #00A78E;
@@ -814,10 +816,16 @@ p {
     .header_hero_content .header_sub_title {
       font-size: 30px; } }
 .header_hero_content .header_title {
+  opacity: 0;
+  animation: show_heading 1s ease-in-out forwards 1s;
   font-size: 50px;
   font-weight: 700;
   color: #293651;
-  margin-top: 20px; }
+  margin-top: 20px; 
+  
+}
+
+
   @media (max-width: 767px) {
     .header_hero_content .header_title {
       font-size: 24px; } }
@@ -829,19 +837,65 @@ p {
   font-weight: 500;
   color: #293651;
   margin-top: 15px; }
-.header_hero_content p {
-  margin-top: 15px; }
+.header_hero_content span {
+
+  margin-top: 15px; 
+  opacity: 0;
+  animation: show_heading 1s ease-in-out 1.25s forwards;
+}
+
+.header_hero_content p:nth-child(4) {
+  opacity: 0;
+  margin-top: 15px; 
+  animation: show_heading 1s ease-in-out 1.5s forwards;
+}
+.header_hero_content p:nth-child(5) {
+  opacity: 0;
+  margin-top: 15px; 
+  animation: show_heading 1s ease-in-out 1.75s forwards;
+}
+
+
 .header_hero_content .main-btn {
-  margin-top: 30px; }
+  margin-top: 30px; 
+  opacity: 0;
+  animation: show_heading 1s ease-in-out 2s forwards;
+}
+@keyframes show_heading {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  } to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+img[alt="hero"] {
+  opacity: 0;
+  transform: translateX(30%);
+  animation: img_hero ease-in-out 1s 2.25s forwards;
+}
+@keyframes img_hero {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 .header_hero_image img {
-  width: 100%; }
+  width: 100%; 
+}
 
 /*===========================
         03.ABOUT css 
 ===========================*/
 .about_image {
-  position: relative; }
+  position: relative; 
+  transform: translateX(-100%);
+  opacity: 0.5;
+  transition: all 0.6s ease-in-out;
+}
   .about_image img {
     width: 100%; }
   .about_image .about_shape {
@@ -1145,3 +1199,16 @@ p {
           font-size: 15px; } }
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* .header_title.show_heading {
+  animation: show_heading 1s  linear forwards;
+} */
+
+
