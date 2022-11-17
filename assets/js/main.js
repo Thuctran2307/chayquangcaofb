@@ -6,10 +6,11 @@ $(function () {
 
     $(window).on('load', function (event) {
         $('.preloader').delay(500).fadeOut(500);
+        
     });
 
 
-  //===== Sticky
+    //===== Sticky
 
     $(window).on('scroll', function (event) {
         var scroll = $(window).scrollTop();
@@ -19,8 +20,8 @@ $(function () {
             $(".header_navbar").addClass("sticky");
         }
     });
-    
-    
+
+
     //===== Section Menu Active
 
     var scrollLink = $('.page-scroll');
@@ -38,8 +39,8 @@ $(function () {
             }
         });
     });
-    
-    
+
+
     //===== close navbar-collapse when a  clicked
 
     $(".navbar-nav a").on('click', function () {
@@ -52,7 +53,7 @@ $(function () {
 
     $(".navbar-nav a").on('click', function () {
         $(".navbar-toggler").removeClass('active');
-    });    
+    });
 
 
     ///===== Progress Bar
@@ -93,3 +94,37 @@ $(function () {
 
 
 });
+
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.intersectionRatio > 0) {
+            document.querySelector('.about_image').classList.add('show')
+        } 
+    })
+}, {
+    threshold: 0.25
+})
+
+const elements = document.querySelectorAll('.about_image_box')
+
+elements.forEach(element => {
+    observer.observe(element)
+})
+
+
+// const observer1 = new IntersectionObserver((entries, observer) => {
+//     entries.forEach(entry => {
+//         if (entry.intersectionRatio > 0) {
+//             entry.target.classList.add('show_heading')
+//         } 
+//     })
+// }, {
+//     threshold: 0.25
+// })
+
+// const elements1 = document.querySelectorAll('.header_title')
+
+// elements1.forEach(element => {
+//     observer1.observe(element)
+// })
