@@ -115,7 +115,7 @@ elements.forEach(element => {
 var i = 0
 const observer_singleServiceBox = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-    
+        if (i === 3) i = 0
         if (entry.intersectionRatio > 0) {
             entry.target.querySelector ('.single_service').style.animation = `single_service 1.5s ease-in-out forwards ${i++*0.5}s`
         } 
